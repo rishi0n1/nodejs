@@ -1,0 +1,22 @@
+const fs = require('fs');
+
+// Creating multiple files using writeFile once
+const files = ['Index122.js', 'Index23r.js', 'Index24r.js'];
+
+
+files.forEach(file => {
+    fs.writeFile(file,"rishi babu", (err) => {
+        if (err) console.error(`Error writing ${file}:`, err);
+        else console.log(`${file} created successfully`);
+    });
+});
+
+// Deleting multiple files using unlink once
+setTimeout(() => {
+    files.forEach(file => {
+        fs.unlink(file, (err) => {
+            if (err) console.error(`Error deleting ${file}:`, err);
+            else console.log(`${file} deleted successfully`);
+        });
+    });
+}, 30000);
