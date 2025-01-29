@@ -1,0 +1,21 @@
+const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    return regex.test(email) ? "Valid email" : "Invalid email ID";
+};
+
+const validateDOB = (dob) => {
+    const inputDate = new Date(dob);
+    const today = new Date();
+    
+    today.setHours(0, 0, 0, 0);
+    inputDate.setHours(0, 0, 0, 0);
+    
+    return inputDate > today ? "Invalid date" : "Valid date";
+};
+
+// Example usage
+const email = "test@gmail.com";
+console.log(validateEmail(email));
+
+const dob = "2025-01-30"; // Change this date to test
+console.log(validateDOB(dob));
